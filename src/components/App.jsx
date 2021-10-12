@@ -14,6 +14,14 @@ function App() {
     })
   };
 
+  function handleDelete(id) {
+    console.log("Deleting note of ID: " + id);
+    setNoteList(prevNotes => {
+      return prevNotes.filter((note, index) => index !== id)
+    })
+    console.log(noteList)
+  };
+
   return (
     <div>
       <Header />
@@ -23,11 +31,13 @@ function App() {
       {noteList.map((noteItem, index) => {
         return <Note
           key={index}
+          id={index}
           title={noteItem.title}
           content={noteItem.content}
+          onDelete={handleDelete}
         />
       })}
-      
+
       <Footer />
     </div>
   );
