@@ -15,11 +15,9 @@ function App() {
   };
 
   function handleDelete(id) {
-    console.log("Deleting note of ID: " + id);
     setNoteList(prevNotes => {
       return prevNotes.filter((note, index) => index !== id)
     })
-    console.log(noteList)
   };
 
   return (
